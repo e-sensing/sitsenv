@@ -82,12 +82,17 @@ install-r:  ## Install R language
     deldir \
     geosphere gstat \
     hdf5r \
-    mapdata maptools \
+    mapdata \
     ncdf4 \
     proj4 \
     RColorBrewer RNetCDF \
-    raster rgdal rgeos rlas \
-    sf sp spacetime spatstat spdep \
+    raster \
+	rlas \
+    sf \
+	sp \
+	spacetime \
+	spatstat \
+	spdep \
     rmarkdown \
     Rcpp \
     knitr \
@@ -112,7 +117,15 @@ install-sits:  ## Install SITS R Package
 	# Install sits
 	git clone --branch dev https://github.com/e-sensing/sits \
 	&& cd sits \
-	&& echo "remotes::install_deps(dependencies = TRUE)" | R --no-save
+	&& echo "remotes::install_deps(dependencies = TRUE)" | R --no-save \
+	&& echo "devtools::install('.')" | R --no-save
+
+	# Install sitsdata
+	git clone https://github.com/e-sensing/sitsdata \
+	&& cd sitsdata \
+	&& echo "devtools::install('.')" | R --no-save
+
+	rm -rf sits sitsdata
 
 #
 # RStudio
