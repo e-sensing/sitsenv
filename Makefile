@@ -12,7 +12,7 @@ UBUNTU_CODENAME := $(shell lsb_release -cs)
 #
 # Targets
 #
-.PHONY = install install-base install-r install-sits install-rstudio
+.PHONY = install install-base install-r install-sits install-rstudio install-cuda
 
 #
 # Base
@@ -130,17 +130,29 @@ install-sits:  ## Install SITS R Package
 #
 # RStudio
 #
-install-rstudio:  # Install RStudio
+install-rstudio:  ## Install RStudio
 	wget https://download2.rstudio.org/server/focal/amd64/$(RSTUDIO_VERSION).deb --no-check-certificate \
     && gdebi $(RSTUDIO_VERSION).deb -n \
-    && rm $(RSTUDIO_VERSION).deb \ 
+    && rm $(RSTUDIO_VERSION).deb \
     && mkdir -p /var/lib/rstudio-server/monitor/log/ \
     && chown rstudio-server:rstudio-server /var/lib/rstudio-server/monitor/log/
 
 #
+# CUDA for R
+#
+install-cuda:  ## Install CUDA (11.8)
+	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin \
+	&& mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
+	&& apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub \
+	&& add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" \
+	&& apt install cuda-11-8 cuda-toolkit-11-8 -y \
+	&& echo "install.packages('torch')" | R --no-save \
+	&& echo 'torch::install_torch(type = "11.8")' | R --no-save
+
+#
 # General installation target
 #
-install: install-base install-r install-sits install-rstudio
+install: install-base install-r install-sits install-rstudio install-cuda
 	echo "all dependencies installed!"
 
 #
