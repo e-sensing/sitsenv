@@ -26,6 +26,10 @@ sudo make install
 
 Once the installation is complete, you can start using the `sits` package in the RStudio environment. The provided makefile takes care of all the necessary configurations.
 
+## Versions
+
+The `sitsenv` version is updated following the releases of the [sits](https://github.com/e-sensing/sits) R package.
+
 ## Contributing
 
 If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.

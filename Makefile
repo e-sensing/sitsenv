@@ -115,7 +115,7 @@ install-r:  ## Install R language
 #
 install-sits:  ## Install SITS R Package
 	# Install sits
-	git clone https://github.com/e-sensing/sits \
+	git clone --branch v1.5.1 https://github.com/e-sensing/sits \
 	&& cd sits \
 	&& echo "remotes::install_deps(dependencies = TRUE)" | R --no-save \
 	&& echo "devtools::install('.')" | R --no-save
