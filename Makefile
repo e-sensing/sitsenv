@@ -7,7 +7,7 @@
 RSTUDIO_VERSION=rstudio-server-2024.04.2-764-amd64
 
 # Ubuntu version
-UBUNTU_CODENAME := $(shell lsb_release -cs)
+UBUNTU_CODENAME=$(shell lsb_release -cs)
 
 #
 # Targets
@@ -115,7 +115,7 @@ install-r:  ## Install R language
 #
 install-sits:  ## Install SITS R Package
 	# Install sits
-	git clone --branch dev https://github.com/e-sensing/sits \
+	git clone https://github.com/e-sensing/sits \
 	&& cd sits \
 	&& echo "remotes::install_deps(dependencies = TRUE)" | R --no-save \
 	&& echo "devtools::install('.')" | R --no-save
@@ -131,7 +131,7 @@ install-sits:  ## Install SITS R Package
 # RStudio
 #
 install-rstudio:  ## Install RStudio
-	wget https://download2.rstudio.org/server/focal/amd64/$(RSTUDIO_VERSION).deb --no-check-certificate \
+	wget https://download2.rstudio.org/server/$(UBUNTU_CODENAME)/amd64/$(RSTUDIO_VERSION).deb --no-check-certificate \
     && gdebi $(RSTUDIO_VERSION).deb -n \
     && rm $(RSTUDIO_VERSION).deb \
     && mkdir -p /var/lib/rstudio-server/monitor/log/ \
