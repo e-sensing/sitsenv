@@ -3,7 +3,7 @@
 
 Useful scripts to quickly configure [sits](https://github.com/e-sensing/sits) environments with [RStudio](https://posit.co/download/rstudio-server/).
 
-> Scripts created to be used in Ubuntu 20.04 environments
+> Scripts created to be used in Ubuntu 22.04 environments
 
 ## Prerequisites
 
