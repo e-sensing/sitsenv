@@ -4,7 +4,7 @@
 #
 
 # RStudio
-RSTUDIO_VERSION=rstudio-server-2024.04.2-764-amd64
+RSTUDIO_VERSION=rstudio-server-2024.09.1-394-amd64
 
 # Ubuntu version
 UBUNTU_CODENAME=$(shell lsb_release -cs)
