@@ -138,6 +138,14 @@ install-rstudio:  ## Install RStudio
     && chown rstudio-server:rstudio-server /var/lib/rstudio-server/monitor/log/
 
 #
+# Shiny
+#
+install-shiny:  ## Install Shiny server
+	# Valid for any Ubuntu 18.04 +
+	wget https://download3.rstudio.org/ubuntu-20.04/x86_64/shiny-server-1.5.23.1030-amd64.deb \
+	&& sudo gdebi shiny-server-1.5.23.1030-amd64.deb
+
+#
 # CUDA for R
 #
 install-cuda:  ## Install CUDA (11.8)
