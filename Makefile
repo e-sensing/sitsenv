@@ -31,7 +31,7 @@ install-base:  ## Install base dependencies
     libjq-dev \
     libnetcdf-dev \
     libpq-dev libproj-dev libprotobuf-dev \
-    libsqlite3-dev libssl-dev \
+    libsqlite3-dev libssl-dev libabsl-dev \
     libudunits2-dev libunwind-dev \
     netcdf-bin \
     postgis protobuf-compiler \
@@ -50,7 +50,8 @@ install-base:  ## Install base dependencies
     libharfbuzz-dev \
 	libfribidi-dev \
 	gdebi-core \
-	libclang-dev
+	libclang-dev \
+	cmake
 
 #
 # R language
