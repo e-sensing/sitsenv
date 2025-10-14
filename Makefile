@@ -4,7 +4,7 @@
 #
 
 # RStudio
-RSTUDIO_VERSION=rstudio-server-2024.09.1-394-amd64
+RSTUDIO_VERSION=rstudio-server-2025.09.1-401-amd64
 
 # Ubuntu version
 UBUNTU_CODENAME=$(shell lsb_release -cs)
@@ -132,7 +132,7 @@ install-sits:  ## Install SITS R Package
 # RStudio
 #
 install-rstudio:  ## Install RStudio
-	wget https://download2.rstudio.org/server/$(UBUNTU_CODENAME)/amd64/$(RSTUDIO_VERSION).deb --no-check-certificate \
+	wget https://download2.rstudio.org/server/jammy/amd64/$(RSTUDIO_VERSION).deb --no-check-certificate \
     && gdebi $(RSTUDIO_VERSION).deb -n \
     && rm $(RSTUDIO_VERSION).deb \
     && mkdir -p /var/lib/rstudio-server/monitor/log/ \
