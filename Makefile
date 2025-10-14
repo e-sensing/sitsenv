@@ -161,7 +161,7 @@ install-cuda:  ## Install CUDA (11.8)
 #
 # General installation target
 #
-install: install-base install-r install-sits install-rstudio install-cuda
+install: install-base install-r install-sits install-rstudio
 	echo "all dependencies installed!"
 
 #
