@@ -149,14 +149,14 @@ install-shiny:  ## Install Shiny server
 #
 # CUDA for R
 #
-install-cuda:  ## Install CUDA (11.8)
-	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin \
-	&& mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
-	&& apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub \
-	&& add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" \
-	&& apt install cuda-11-8 cuda-toolkit-11-8 -y \
+install-cuda:  ## Install CUDA (12.8)
+	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin \
+	&& mv cuda-ubuntu2404.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
+	&& apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub \
+	&& add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" \
+	&& apt install cuda-12-8 cuda-toolkit-12-8 -y \
 	&& echo "install.packages('torch')" | R --no-save \
-	&& echo 'torch::install_torch(type = "11.8")' | R --no-save
+	&& echo 'torch::install_torch(type = "12-8")' | R --no-save
 
 #
 # General installation target
