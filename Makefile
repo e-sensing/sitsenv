@@ -29,7 +29,7 @@ install-base:  ## Install base dependencies
     libgl1-mesa-dev  libglu1-mesa-dev \
     libhdf4-alt-dev libhdf5-dev \
     libjq-dev \
-	libuv1-dev \ 
+    libuv1-dev \
     libnetcdf-dev \
     libpq-dev libproj-dev libprotobuf-dev \
     libsqlite3-dev libssl-dev libabsl-dev \
